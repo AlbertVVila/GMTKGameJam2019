@@ -15,20 +15,21 @@ public class HoldingTongueState : PlayerState
 
     public override void OnEnter()
     {
-        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 0f);
-        if(hit.collider != null)
-        {
-            if(hit.collider.CompareTag("Surface"))
-            {
-                canJump = true;
-                player.surfaceMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            }
-        }
+        //RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 0f);
+        //if(hit.collider != null)
+        //{
+        //    if(hit.collider.CompareTag("Surface"))
+        //    {
+        //        canJump = true;
+        player.GetComponent<Rigidbody2D>().gravityScale = 0f;
+        player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        //    }
+        //}
     }
 
     public override PlayerState Update()
     {
-        if(canJump && Input.GetMouseButton(0))
+        if(Input.GetMouseButton(0))
         {
             currentTimer += Time.deltaTime;
             if(currentTimer >= jumpTimer)
@@ -37,12 +38,12 @@ public class HoldingTongueState : PlayerState
             }
             return this;
         }
+        player.hasContactedSurface = false;
         return player.backingTongue;
     }
 
     public override void OnExit()
     {
-        canJump = false;
         currentTimer = 0.0f;
     }
 }

@@ -7,6 +7,13 @@ public class IdleState : PlayerState
     {
     }
 
+    public override void OnEnter()
+    {
+        if(!player.isGrabbed)
+        {
+            player.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
+        }
+    }
     public override PlayerState Update()
     {
         if(Input.GetMouseButtonDown(0))

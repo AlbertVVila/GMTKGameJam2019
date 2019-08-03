@@ -9,9 +9,11 @@ public class Player : MonoBehaviour
     public float tongueRange = 10f;
     public float tongueSpeed = 20f;
     public Vector2 defaultTongueSize;
+    public bool isGrabbed = false;
 
     [HideInInspector]
-    public Vector2 surfaceMousePosition; //this position should be the edge of the surface or any previous surface crossed by the tongue
+    public Vector2 surfaceContactPosition = Vector2.negativeInfinity;
+    public bool hasContactedSurface = false;
 
     [HideInInspector]
     public GameObject tongue;
@@ -26,7 +28,6 @@ public class Player : MonoBehaviour
     public HoldingTongueState holdingTongue;
     public BackingTongueState backingTongue;
     public JumpingToSurfaceState jumpToSurface;
-
 
     private void Awake()
     {
@@ -54,6 +55,19 @@ public class Player : MonoBehaviour
             currentState.OnExit();
             nextState.OnEnter();
             currentState = nextState;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Surface"))
+        {
+            surfaceContactPosition = tongue.transform.position;
+
+            Vector2 offset = (surfaceContactPosition - (Vector2)transform.position).normalized * 1f; //Offset for attaching to grid
+            surfaceContactPosition -= offset;
+
+            hasContactedSurface = true;
         }
     }
 }
