@@ -9,10 +9,14 @@ public class Player : MonoBehaviour
     public float tongueRange = 10f;
     public float tongueSpeed = 20f;
     public Vector2 defaultTongueSize;
+
+    [HideInInspector]
     public bool isGrabbed = false;
 
     [HideInInspector]
     public Vector2 surfaceContactPosition = Vector2.negativeInfinity;
+
+    [HideInInspector]
     public bool hasContactedSurface = false;
 
     [HideInInspector]

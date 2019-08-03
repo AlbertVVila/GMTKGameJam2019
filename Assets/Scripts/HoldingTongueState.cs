@@ -15,16 +15,8 @@ public class HoldingTongueState : PlayerState
 
     public override void OnEnter()
     {
-        //RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 0f);
-        //if(hit.collider != null)
-        //{
-        //    if(hit.collider.CompareTag("Surface"))
-        //    {
-        //        canJump = true;
         player.GetComponent<Rigidbody2D>().gravityScale = 0f;
         player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        //    }
-        //}
     }
 
     public override PlayerState Update()
