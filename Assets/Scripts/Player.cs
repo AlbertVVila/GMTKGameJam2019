@@ -53,14 +53,13 @@ public class Player : MonoBehaviour
     void Start()
     {
         tongue = transform.GetChild(0).gameObject;
-        initTonguePosition = tongue.transform.position;
+        initTonguePosition = tongue.transform.localPosition;
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
         if (!Input.GetMouseButton(0))
         {
             spriteRenderer.sprite = spriteBase;
