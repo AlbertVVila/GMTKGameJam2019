@@ -48,8 +48,9 @@ public class ThrowingTongueState : PlayerState
 
             Vector2 direction = (mousePosition - ((Vector2)player.transform.position + (Vector2)player.initTonguePosition)).normalized;
             player.tongue.transform.up = direction;
+            player.spriteGO.transform.up = direction;
 
-            if(player.hasContactedSurface) //Tongue has found a surface before reaching its destiny
+            if (player.hasContactedSurface) //Tongue has found a surface before reaching its destiny
             {
                 return false;
             }
