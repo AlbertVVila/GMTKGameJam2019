@@ -11,32 +11,24 @@ public class ComestibleInsect : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         if (collision.name == "tongue")
         {
             if (!triggered)
             {
-                // only one behavior
-                Debug.Log("Triggered: " + this.name);
-                triggered = true;
-            } 
-
-        }
-
-        if (collision.name == "Player")
-        {
-            if (!triggered)
-            {
-                collision.GetComponent<Player>().tongueRange =+ 2.0f;
+                GameObject.Find("Player").GetComponent<Player>().tongueRange = GameObject.Find("Player").GetComponent<Player>().tongueRange + 2.0f; 
                 amount.text = (int.Parse(amount.text) + 1).ToString();
                 if (int.Parse(amount.text) == 5)
                 {
                     // game finished
                     wonTitle.enabled = true;
                 }
-                Destroy(this.gameObject);
+                Destroy(this.gameObject, 1.5f);
             }
         }
 
     }
+
+
 
 }
