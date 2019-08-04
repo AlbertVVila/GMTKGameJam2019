@@ -17,6 +17,11 @@ public class BackingTongueState : PlayerState
     {
         if (!BackTongue())
         {
+            if (player.tongue.transform.childCount> 0 && player.tongue.transform.GetChild(0).gameObject.CompareTag("Comestible"))
+            {
+                player.DestroyObject(player.tongue.transform.GetChild(0).gameObject);
+            }
+
             return player.idleState;
         }
         return player.backingTongue;

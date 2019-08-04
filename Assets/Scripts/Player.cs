@@ -93,4 +93,9 @@ public class Player : MonoBehaviour
             collision.transform.SetParent(this.transform.Find("tongue"));
         }
     }
+
+    public void DestroyObject(GameObject objectToBeDestroyed)
+    {
+        Destroy(objectToBeDestroyed);
+    }
 }
