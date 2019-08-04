@@ -6,7 +6,9 @@ public class MoveCamera : MonoBehaviour
 {
     public Camera cam;
     public float transitionDuration = 2.5f;
-    public Transform target;
+    public Transform targetA;
+    public Transform targetB;
+    private bool toggle = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -20,12 +22,21 @@ public class MoveCamera : MonoBehaviour
     {
         float t = 0.0f;
         Vector3 startingPos = cam.transform.position;
+        Vector3 finalPosition = targetA.position;
+
+        if (!toggle) {
+            finalPosition = targetA.position;
+        } else {
+            finalPosition = targetB.position;
+        }
+
         while (t < 1.0f)
         {
             t += Time.deltaTime * (Time.timeScale / transitionDuration);
-            cam.transform.position = Vector3.Lerp(startingPos, target.position, t);
+            cam.transform.position = Vector3.Lerp(startingPos, finalPosition, t);
             yield return 0;
         }
+        toggle = !toggle;
     }
 
 }
