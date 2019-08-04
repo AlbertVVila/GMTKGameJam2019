@@ -73,5 +73,11 @@ public class Player : MonoBehaviour
 
             hasContactedSurface = true;
         }
+
+        if (collision.CompareTag("Comestible"))
+        {
+            collision.transform.SetParent(this.transform.Find("tongue"));
+        }
+
     }
 }
