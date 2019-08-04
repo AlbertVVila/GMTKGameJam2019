@@ -77,13 +77,13 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Surface"))
+        if (collision.CompareTag("Surface") && Vector2.Distance(transform.position, tongue.transform.position) > 2.5f)
         {
             surfaceContactPosition = tongue.transform.position;
 
             Vector2 offset = (surfaceContactPosition - (Vector2)transform.position).normalized * 1f; //Offset for attaching to grid
             surfaceContactPosition -= offset;
-            
+
             spriteRenderer.sprite = spriteOnAir;
 
             hasContactedSurface = true;
@@ -93,6 +93,5 @@ public class Player : MonoBehaviour
         {
             collision.transform.SetParent(this.transform.Find("tongue"));
         }
-
     }
 }
