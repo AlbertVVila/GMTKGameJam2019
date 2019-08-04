@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    public float tongueRange = 10f;
+    public float tongueRange = 7f;
     public float tongueSpeed = 20f;
     public Vector2 defaultTongueSize;
 
@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
     {
         if (!Input.GetMouseButton(0))
         {
-            spriteRenderer.sprite = spriteBase;
+            //spriteRenderer.sprite = spriteBase;
         }
 
         PlayerState nextState = currentState.Update();
