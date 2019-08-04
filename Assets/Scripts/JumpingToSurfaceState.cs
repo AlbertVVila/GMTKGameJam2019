@@ -23,6 +23,7 @@ public class JumpingToSurfaceState : PlayerState
         {
             if(!ReachingSurface())
             {
+                player.spriteRenderer.sprite = player.spriteBase;
                 return player.idleState;
             }
         }

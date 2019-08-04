@@ -12,6 +12,7 @@ public class BackingTongueState : PlayerState
     {
         initialPosition = player.initTonguePosition + player.transform.position; //local initial tongue position + current player position
     }
+
     public override PlayerState Update()
     {
         if (!BackTongue())

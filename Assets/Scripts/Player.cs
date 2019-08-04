@@ -25,6 +25,12 @@ public class Player : MonoBehaviour
     [HideInInspector]
     public Vector3 initTonguePosition;
 
+    [HideInInspector]
+    public SpriteRenderer spriteRenderer;
+
+    public Sprite spriteOnAir;
+    public Sprite spriteBase;
+
     public PlayerState currentState;
 
     public IdleState idleState;
@@ -48,11 +54,18 @@ public class Player : MonoBehaviour
     {
         tongue = transform.GetChild(0).gameObject;
         initTonguePosition = tongue.transform.position;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (!Input.GetMouseButton(0))
+        {
+            spriteRenderer.sprite = spriteBase;
+        }
+
         PlayerState nextState = currentState.Update();
         if(nextState != currentState)
         {
@@ -70,6 +83,8 @@ public class Player : MonoBehaviour
 
             Vector2 offset = (surfaceContactPosition - (Vector2)transform.position).normalized * 1f; //Offset for attaching to grid
             surfaceContactPosition -= offset;
+            
+            spriteRenderer.sprite = spriteOnAir;
 
             hasContactedSurface = true;
         }
