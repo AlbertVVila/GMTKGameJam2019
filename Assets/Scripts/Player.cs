@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
 
     [HideInInspector]
     public GameObject tongue;
+    [HideInInspector]
+    public GameObject spriteGO;
 
     [HideInInspector]
     public Vector3 initTonguePosition;
@@ -54,7 +56,8 @@ public class Player : MonoBehaviour
     {
         tongue = transform.GetChild(0).gameObject;
         initTonguePosition = tongue.transform.localPosition;
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteGO = transform.GetChild(1).gameObject;
+        spriteRenderer = spriteGO.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame

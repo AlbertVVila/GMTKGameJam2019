@@ -24,6 +24,8 @@ public class JumpingToSurfaceState : PlayerState
             if(!ReachingSurface())
             {
                 player.spriteRenderer.sprite = player.spriteBase;
+                //player.spriteGO.transform.up = player.spriteGO.transform.up * -1.0f;
+                player.transform.up = player.transform.up * -1.0f;
                 return player.idleState;
             }
         }

@@ -7627,6 +7627,11 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1382207951913723170, guid: 37253b1c6b27f0743a4227468adeb9e4,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1382207951913723359, guid: 37253b1c6b27f0743a4227468adeb9e4,
         type: 3}
       propertyPath: spriteOnAir
@@ -7644,6 +7649,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1382207951913723356, guid: 37253b1c6b27f0743a4227468adeb9e4,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382207951913723356, guid: 37253b1c6b27f0743a4227468adeb9e4,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1382207952844149154, guid: 37253b1c6b27f0743a4227468adeb9e4,
         type: 3}
       propertyPath: m_Layer
@@ -7659,7 +7674,8 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1382207951913723170, guid: 37253b1c6b27f0743a4227468adeb9e4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 37253b1c6b27f0743a4227468adeb9e4, type: 3}
 --- !u!213 &1055104424
 Sprite:
